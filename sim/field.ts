@@ -7,6 +7,7 @@
 
 import {State} from './state';
 import {EffectState} from './pokemon';
+import {toID} from './dex';
 
 export class Field {
 	readonly battle: Battle;
@@ -228,7 +229,6 @@ export class Field {
 		// deallocate ourself
 
 		// get rid of some possibly-circular references
-		// @ts-ignore - readonly
-		this.battle = null!;
+		(this as any).battle = null!;
 	}
 }
